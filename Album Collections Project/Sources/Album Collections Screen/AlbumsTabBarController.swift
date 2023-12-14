@@ -22,25 +22,28 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     private func setupTabBarViewControllers() {
-        let firstItem = FirstTabBarViewController()
+        let firstItemController = FirstTabBarViewController()
         let firstIcon = UITabBarItem(title: "Library", image: UIImage(systemName: "photo.on.rectangle.fill"), selectedImage: UIImage(systemName: "photo.fill.on.rectangle.fill"))
-        firstItem.tabBarItem = firstIcon
+        firstItemController.tabBarItem = firstIcon
         
-        let secondItem = SecondTabBarViewController()
-        let secondIcon = UITabBarItem(title: "For you", image: UIImage(named: "icons8-for-you"), selectedImage: UIImage(named: "icons8-for-you"))
-        secondItem.tabBarItem = secondIcon
+        let secondItemController = SecondTabBarViewController()
+        let secondIcon = UITabBarItem(title: "For you", image: UIImage(systemName: "heart.text.square.fill"), selectedImage: UIImage(systemName: "heart.text.square.fill"))
+        secondItemController.tabBarItem = secondIcon
         
-        
-        let thirdItem = AlbumMainViewController()
+        let thirdItemController = MyAlbumCompositionalViewController()
         let thirdIcon = UITabBarItem(title: "Albums", image: UIImage(systemName: "square.stack.fill"), selectedImage: UIImage(systemName: "square.stack.fill"))
-        thirdItem.tabBarItem = thirdIcon
+        thirdItemController.tabBarItem = thirdIcon
         
         
-        let forthItem = ForthTabBarViewController()
+        let forthItemController = ForthTabBarViewController()
         let forthIcon = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass"))
-        forthItem.tabBarItem = forthIcon
+        forthItemController.tabBarItem = forthIcon
         
-        let controllers = [firstItem, secondItem, thirdItem, forthItem]
+        let controllers = [firstItemController, secondItemController, thirdItemController, forthItemController]
         self.setViewControllers(controllers, animated: true)
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        true
     }
 }

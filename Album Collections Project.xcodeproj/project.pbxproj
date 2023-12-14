@@ -18,8 +18,10 @@
 		8C4D92CB2B2A3433006B074A /* FirstTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92CA2B2A3433006B074A /* FirstTabBarController.swift */; };
 		8C4D92CD2B2A343E006B074A /* SecondTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92CC2B2A343E006B074A /* SecondTabBarController.swift */; };
 		8C4D92CF2B2A3450006B074A /* ForthTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92CE2B2A3450006B074A /* ForthTabBarController.swift */; };
-		8C4D92D22B2A3545006B074A /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92D12B2A3545006B074A /* AlbumViewCell.swift */; };
 		8C4D92D42B2A3636006B074A /* AlbumMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92D32B2A3636006B074A /* AlbumMainViewController.swift */; };
+		8C4D92D92B2A4DFC006B074A /* MyAlbumsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92D82B2A4DFC006B074A /* MyAlbumsModel.swift */; };
+		8C4D92DD2B2A590B006B074A /* MyAlbumCompositionalLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92DC2B2A590B006B074A /* MyAlbumCompositionalLayoutCell.swift */; };
+		8C4D92DF2B2A597C006B074A /* MyAlbumCompositionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D92DE2B2A597C006B074A /* MyAlbumCompositionalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,10 @@
 		8C4D92CA2B2A3433006B074A /* FirstTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabBarController.swift; sourceTree = "<group>"; };
 		8C4D92CC2B2A343E006B074A /* SecondTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabBarController.swift; sourceTree = "<group>"; };
 		8C4D92CE2B2A3450006B074A /* ForthTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForthTabBarController.swift; sourceTree = "<group>"; };
-		8C4D92D12B2A3545006B074A /* AlbumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
 		8C4D92D32B2A3636006B074A /* AlbumMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumMainViewController.swift; sourceTree = "<group>"; };
+		8C4D92D82B2A4DFC006B074A /* MyAlbumsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsModel.swift; sourceTree = "<group>"; };
+		8C4D92DC2B2A590B006B074A /* MyAlbumCompositionalLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumCompositionalLayoutCell.swift; sourceTree = "<group>"; };
+		8C4D92DE2B2A597C006B074A /* MyAlbumCompositionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumCompositionalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				8C4D92C92B2A3400006B074A /* TabBarViewControllers */,
-				8C4D92D02B2A3538006B074A /* Cells */,
-				8C4D92D32B2A3636006B074A /* AlbumMainViewController.swift */,
 				8C4D92C22B2A3291006B074A /* AlbumsTabBarController.swift */,
+				8C4D92D52B2A48F2006B074A /* MyAlbumCompositionalLayout */,
 			);
 			path = "Album Collections Screen";
 			sourceTree = "<group>";
@@ -134,12 +137,15 @@
 			path = TabBarViewControllers;
 			sourceTree = "<group>";
 		};
-		8C4D92D02B2A3538006B074A /* Cells */ = {
+		8C4D92D52B2A48F2006B074A /* MyAlbumCompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
-				8C4D92D12B2A3545006B074A /* AlbumViewCell.swift */,
+				8C4D92DC2B2A590B006B074A /* MyAlbumCompositionalLayoutCell.swift */,
+				8C4D92DE2B2A597C006B074A /* MyAlbumCompositionalViewController.swift */,
+				8C4D92D82B2A4DFC006B074A /* MyAlbumsModel.swift */,
+				8C4D92D32B2A3636006B074A /* AlbumMainViewController.swift */,
 			);
-			path = Cells;
+			path = MyAlbumCompositionalLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,12 +227,14 @@
 			files = (
 				8C4D92CF2B2A3450006B074A /* ForthTabBarController.swift in Sources */,
 				8C4D92BE2B2A30A3006B074A /* ViewControllerExtesions.swift in Sources */,
+				8C4D92DF2B2A597C006B074A /* MyAlbumCompositionalViewController.swift in Sources */,
 				8C4D92CB2B2A3433006B074A /* FirstTabBarController.swift in Sources */,
 				8C4D92CD2B2A343E006B074A /* SecondTabBarController.swift in Sources */,
 				8C4D92C32B2A3291006B074A /* AlbumsTabBarController.swift in Sources */,
+				8C4D92DD2B2A590B006B074A /* MyAlbumCompositionalLayoutCell.swift in Sources */,
 				8C4D92A82B2A2F4E006B074A /* AppDelegate.swift in Sources */,
 				8C4D92AA2B2A2F4E006B074A /* SceneDelegate.swift in Sources */,
-				8C4D92D22B2A3545006B074A /* AlbumViewCell.swift in Sources */,
+				8C4D92D92B2A4DFC006B074A /* MyAlbumsModel.swift in Sources */,
 				8C4D92D42B2A3636006B074A /* AlbumMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

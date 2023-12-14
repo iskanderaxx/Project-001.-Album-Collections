@@ -1,12 +1,8 @@
-
+/*
 import UIKit
 import SnapKit
 
-final class AlbumMainViewController: UIViewController {
-    
-    // MARK: - State
-    
-    
+final class MyAlbumsViewController: UIViewController {
     
     // MARK: - UIElements & Outlets
     
@@ -17,9 +13,8 @@ final class AlbumMainViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.bounces = true
-        collectionView.register(AlbumsCompositionalLayoutCell.self,
-                                forCellWithReuseIdentifier: AlbumsCompositionalLayoutCell.identifier)
-        // Under construction
+        collectionView.register(MyAlbumsFlowLayoutCell.self,
+                                forCellWithReuseIdentifier: MyAlbumsFlowLayoutCell.identifier)
         return collectionView
     }()
     
@@ -27,8 +22,6 @@ final class AlbumMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray3
-        
         setupNavigation()
         setupHierarchy()
         setupLayout()
@@ -38,8 +31,11 @@ final class AlbumMainViewController: UIViewController {
     
     private func setupNavigation() {
         title = "Albums"
-        navigationItem.setLeftBarButton(UIBarButtonItem(title: nil, image: UIImage(systemName: "plus"), primaryAction: UIAction(handler: {_ in
-            self.dismiss(animated: true)}), menu: nil), animated: true)
+        navigationItem.setLeftBarButton(UIBarButtonItem(
+            title: nil,
+            image: UIImage(systemName: "plus"),
+            primaryAction: UIAction(handler: {_ in self.dismiss(animated: true)}),
+            menu: nil), animated: true)
 
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -53,10 +49,8 @@ final class AlbumMainViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-    /*
     private func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, in
-            //
         }
-    }*/
-}
+    }
+} */
