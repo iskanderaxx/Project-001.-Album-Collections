@@ -30,7 +30,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let secondIcon = UITabBarItem(title: "For you", image: UIImage(systemName: "heart.text.square.fill"), selectedImage: UIImage(systemName: "heart.text.square.fill"))
         secondItemController.tabBarItem = secondIcon
         
-        let thirdItemController = MyAlbumCompositionalViewController()
+        let thirdItemController = MyAlbumsViewController()
         let thirdIcon = UITabBarItem(title: "Albums", image: UIImage(systemName: "square.stack.fill"), selectedImage: UIImage(systemName: "square.stack.fill"))
         thirdItemController.tabBarItem = thirdIcon
         

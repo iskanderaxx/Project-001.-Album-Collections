@@ -2,7 +2,7 @@
 import UIKit
 import SnapKit
 
-final class MyAlbumCompositionalViewController: UIViewController {
+final class MyAlbumsViewController: UIViewController {
     
     // MARK: - UIElements & Outlets
     
