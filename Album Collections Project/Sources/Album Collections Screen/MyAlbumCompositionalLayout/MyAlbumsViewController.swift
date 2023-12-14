@@ -31,13 +31,13 @@ final class MyAlbumsViewController: UIViewController {
     
     private func setupNavigation() {
         title = "Albums"
-        navigationItem.setLeftBarButton(UIBarButtonItem(
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(
             title: nil,
             image: UIImage(systemName: "plus"),
             primaryAction: UIAction(handler: {_ in self.dismiss(animated: true)}),
             menu: nil), animated: true)
 
-        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setupHierarchy() {
@@ -46,7 +46,7 @@ final class MyAlbumsViewController: UIViewController {
     
     private func setupLayout() {
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(view)
+            make.edges.equalToSuperview()
         }
     }
     
