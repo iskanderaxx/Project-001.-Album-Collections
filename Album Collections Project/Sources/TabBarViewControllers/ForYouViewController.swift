@@ -2,10 +2,9 @@
 import UIKit
 import SnapKit
 
-final class FirstTabBarViewController: UIViewController {
+final class ForYouViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray4
     }
 }

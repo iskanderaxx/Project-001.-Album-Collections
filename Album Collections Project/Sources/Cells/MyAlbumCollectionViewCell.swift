@@ -2,19 +2,20 @@
 import UIKit
 import SnapKit
 
-final class MyAlbumCompositionalLayoutCell: UICollectionViewCell {
+final class MyAlbumCollectionViewCell: UICollectionViewCell {
+    
     // MARK: - State
     
-    static var identifier = "MyAlbumsCell"
+    static let identifier = "MyAlbumsCell"
     
     // MARK: - UIElements & Outlets
     
-    lazy var image: UIImageView = {
-        let image  = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.layer.shouldRasterize = true
-        image.layer.rasterizationScale = UIScreen.main.scale
-        return image
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.shouldRasterize = true
+        imageView.layer.rasterizationScale = UIScreen.main.scale
+        return imageView
     }()
     
     lazy var albumLabel: UILabel = {
@@ -32,7 +33,7 @@ final class MyAlbumCompositionalLayoutCell: UICollectionViewCell {
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fill
-        stack.spacing = 90
+        //stack.spacing = 80
         return stack
     }()
     
@@ -44,33 +45,34 @@ final class MyAlbumCompositionalLayoutCell: UICollectionViewCell {
         setupLayout()
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Setup & Layout
     
     private func setupHierarchy() {
-        addSubview(image)
+        addSubview(imageView)
         addSubview(bottomStack)
-        bottomStack.addArrangedSubview(amountLabel)
         bottomStack.addArrangedSubview(albumLabel)
+        bottomStack.addArrangedSubview(amountLabel)
     }
     
     private func setupLayout() {
-        image.snp.makeConstraints { make in
-            make.height.equalTo(150)
-            make.width.equalTo(150)
+        imageView.snp.makeConstraints { make in
+            make.height.equalTo(145)
+            make.width.equalTo(145)
         }
         
         bottomStack.snp.makeConstraints { make in
-            make.width.equalTo(50)
+            make.width.equalTo(45)
         }
     }
     
-    // MARK: - Reuse
-    
-    override func prepareForReuse() {
-        self.image.image = nil
+    func configureMyAlbumsCell(imageName: String, label: String, amount: Int) {
+        imageView.image = UIImage(named: imageName)
+        albumLabel.text = label
+        amountLabel.text = String(Int.random(in: 0...999))
+        
     }
 }

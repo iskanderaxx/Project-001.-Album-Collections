@@ -2,10 +2,9 @@
 import UIKit
 import SnapKit
 
-final class SecondTabBarViewController: UIViewController {
+final class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray2
     }
 }
