@@ -4,7 +4,7 @@ import Foundation
 struct ListProperties {
     let image: String
     let title: String
-    let amount: Int
+    let amount: String
 }
 
 enum ListSection {
@@ -46,89 +46,41 @@ struct Model {
     static let shared = Model()
     
     private let myAlbums: ListSection = {
-        .myAlbums([.init(image: "photo1", title: "Recents", amount: 999),
-                   .init(image: "photo2", title: "Travelling", amount: 56),
-                   .init(image: "photo3", title: "Favorites", amount: 567),
-                   .init(image: "photo4", title: "Serbia", amount: 213),
+        .myAlbums([.init(image: "photo1", title: "Recents", amount: ""),
+                   .init(image: "photo2", title: "Travelling", amount: ""),
+                   .init(image: "photo3", title: "Favorites", amount: ""),
+                   .init(image: "photo4", title: "Serbia", amount: ""),
                    
-                   .init(image: "photo5", title: "Mountains", amount: 987),
-                   .init(image: "photo6", title: "Rivers", amount: 8),
-                   .init(image: "photo7", title: "Rocks", amount: 56),
-                   .init(image: "photo8", title: "Trees", amount: 14)])
+                   .init(image: "photo5", title: "Mountains", amount: ""),
+                   .init(image: "photo6", title: "Rivers", amount: ""),
+                   .init(image: "photo7", title: "Rocks", amount: ""),
+                   .init(image: "photo8", title: "Trees", amount: "")])
     }()
     
     private let sharedAlbums: ListSection = {
-        .sharedAlbums([.init(image: "photo9", title: "People", amount: 11),
-                       .init(image: "photo10", title: "Places", amount: 678)])
+        .sharedAlbums([.init(image: "photo9", title: "People", amount: ""),
+                       .init(image: "photo10", title: "Places", amount: "")])
     }()
     
     private let mediaTypes: ListSection = {
-        .mediaTypes([.init(image: "", title: "Video", amount: 400),
-                     .init(image: "", title: "Selfie", amount: 121),
-                     .init(image: "", title: "Live Photos Photo", amount: 81),
-                     .init(image: "", title: "Portraits", amount: 253),
+        .mediaTypes([.init(image: "video", title: "Video", amount: ""),
+                     .init(image: "person.crop.square", title: "Selfie", amount: ""),
+                     .init(image: "circle.dotted.circle", title: "Live Photos", amount: ""),
+                     .init(image: "cube", title: "Portraits", amount: ""),
                      
-                     .init(image: "", title: "Panoramas", amount: 3),
-                     .init(image: "", title: "Series", amount: 16),
-                     .init(image: "", title: "Screetshots", amount: 214),
-                     .init(image: "", title: "Screen recordings", amount: 6)])
+                     .init(image: "pano", title: "Panoramas", amount: ""),
+                     .init(image: "square.on.square.intersection.dashed", title: "Series", amount: ""),
+                     .init(image: "camera.viewfinder", title: "Screetshots", amount: ""),
+                     .init(image: "smallcircle.filled.circle", title: "Screen recordings", amount: "")])
     }()
     
     private let utilities: ListSection = {
-        .utilities([.init(image: "", title: "Imported", amount: 235),
-                    .init(image: "", title: "Hidden", amount: 11),
-                    .init(image: "", title: "Recently Deleted", amount: 78)])
+        .utilities([.init(image: "square.and.arrow.down", title: "Imported", amount: ""),
+                    .init(image: "eye.slash", title: "Hidden", amount: ""),
+                    .init(image: "trash", title: "Recently Deleted", amount: "")])
     }()
     
     var pageData: [ListSection] {
         [myAlbums, sharedAlbums, mediaTypes, utilities]
     }
 }
- 
-/*
-struct Model {
-    static var images: [String] = [
-        "photo1", "photo2", "photo3", "photo4", "photo5", "photo6", "photo7", "photo8", "photo9", "photo10", "photo11", "photo12", "photo13", "photo14", "photo15", "photo16", "photo17", "photo18", "photo19", "photo20"
-    ]
-}
-
-struct Model: Hashable {
-    var title: String?
-    var description: String?
-    var image: String?
-    var numberOfItem: Int?
-}
-
-extension Model {
-    static var modelsArray = [
-        [Model(title: nil, description: "Recents", image: "photo1", numberOfItem: 483),
-         Model(title: nil, description: "Travelling", image: "photo2", numberOfItem: 9),
-         Model(title: nil, description: "Favorites", image: "photo3", numberOfItem: 29),
-         Model(title: nil, description: "Serbia", image: "photo4", numberOfItem: 10),
-         
-         Model(title: nil, description: "Mountains", image: "photo5", numberOfItem: 14),
-         Model(title: nil, description: "Rives", image: "photo6", numberOfItem: 687),
-         Model(title: nil, description: "Nature", image: "photo7", numberOfItem: 98),
-         Model(title: nil, description: "Trees", image: "photo8", numberOfItem: 336)
-        ],
-        
-        [Model(title: nil, description: "People", image: "photo9", numberOfItem: 15),
-         Model(title: nil, description: "Places", image: "photo10", numberOfItem: 483),
-        ],
-        
-        [Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil)
-        ],
-        
-        [Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil),
-         Model(title: "Video", image: nil)
-        ]
-    ]
-} */

@@ -9,6 +9,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+        setupNavigationTitle()
         setupTabBarController()
         setupTabBarViewControllers()
     }
@@ -16,12 +17,23 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     // MARK: - Setup & Layout
     
     private func setupTabBarController() {
-        tabBar.tintColor = .black
+        tabBar.tintColor = .lightGray
         tabBar.backgroundColor = .systemGray2
-        tabBar.tintColor = .systemBlue
+        tabBar.selectedImageTintColor = .systemBlue
     }
     
+    private func setupNavigationTitle() {
+        title = "Albums"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.setLeftBarButton(UIBarButtonItem(title: nil,
+                                                        image: UIImage(systemName: "plus"),
+                                                        primaryAction: UIAction(handler: {_ in self.dismiss(animated: true)}),
+                                                        menu: nil),
+                                        animated: true)
+    }
+
     private func setupTabBarViewControllers() {
+        
         let firstItemController = LibraryViewController()
         let firstIcon = UITabBarItem(title: "Library", image: UIImage(systemName: "photo.fill.on.rectangle.fill"), selectedImage: UIImage(systemName: "photo.fill.on.rectangle.fill"))
         firstItemController.tabBarItem = firstIcon

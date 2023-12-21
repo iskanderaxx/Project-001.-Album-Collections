@@ -20,21 +20,17 @@ final class MyAlbumCollectionViewCell: UICollectionViewCell {
     
     lazy var albumLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
     
     lazy var amountLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .systemGray
+        label.textAlignment = .left
         return label
-    }()
-    
-    private let bottomStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        stack.distribution = .fill
-        //stack.spacing = 80
-        return stack
     }()
     
     // MARK: - Initializers
@@ -49,30 +45,40 @@ final class MyAlbumCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup & Layout
+    // MARK: - Setup, Layout & Configuration
     
     private func setupHierarchy() {
-        addSubview(imageView)
-        addSubview(bottomStack)
-        bottomStack.addArrangedSubview(albumLabel)
-        bottomStack.addArrangedSubview(amountLabel)
+        [imageView, albumLabel, amountLabel].forEach {
+            addSubview($0)
+        }
     }
     
     private func setupLayout() {
         imageView.snp.makeConstraints { make in
-            make.height.equalTo(145)
-            make.width.equalTo(145)
+            make.width.equalTo(160)
+            make.height.equalTo(160)
         }
         
-        bottomStack.snp.makeConstraints { make in
-            make.width.equalTo(45)
+        albumLabel.snp.makeConstraints { make in
+            make.width.equalTo(imageView)
+            make.top.equalTo(imageView.snp.bottom).offset(5)
+            make.height.equalTo(16)
+        }
+        
+        amountLabel.snp.makeConstraints { make in
+            make.width.equalTo(imageView)
+            make.top.equalTo(albumLabel.snp.bottom).offset(1)
+            make.height.equalTo(16)
         }
     }
     
-    func configureMyAlbumsCell(imageName: String, label: String, amount: Int) {
+    func configureMyAlbumsCell(imageName: String, label: String, amount: String) {
         imageView.image = UIImage(named: imageName)
         albumLabel.text = label
-        amountLabel.text = String(Int.random(in: 0...999))
-        
+        amountLabel.text = String(Int.random(in: 1...999))
+    }
+    
+    override func prepareForReuse() {
+        self.imageView.image = nil
     }
 }

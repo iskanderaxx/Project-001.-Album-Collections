@@ -13,6 +13,7 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell {
     private lazy var itemIcon: UIImageView = {
         let imageView  = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -23,7 +24,22 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell {
     
     lazy var itemAmount: UILabel = {
         let label = UILabel()
+        label.textColor = .systemGray
         return label
+    }()
+    
+    private let imageContainer: UIView = {
+        let container = UIView()
+        return container
+    }()
+    
+    private let mainStack: UIStackView = {
+        let stack = UIStackView()
+        stack.alignment = .leading
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 1
+        return stack
     }()
     
     // MARK: - Initializers
@@ -41,29 +57,38 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup & Layout
     
     private func setupHierarchy() {
-        [itemIcon, itemLabel, itemAmount].forEach {
-            addSubview($0)
-        }
+        addSubview(mainStack)
+        mainStack.addArrangedSubview(itemLabel)
+        mainStack.addArrangedSubview(itemAmount)
+        addSubview(imageContainer)
+        imageContainer.addSubview(itemIcon)
     }
     
     private func setupLayout() {
         itemIcon.snp.makeConstraints { make in
-            make.height.equalTo(100)
-            make.width.equalTo(100)
+            make.top.right.bottom.left.equalTo(imageContainer)
+            make.center.equalTo(imageContainer)
         }
         
-        itemLabel.snp.makeConstraints { make in
-            make.width.equalTo(50)
+        imageContainer.snp.makeConstraints { make in
+            make.top.left.bottom.equalTo(contentView).offset(10)
+            make.centerY.equalTo(contentView)
+            make.width.height.equalTo(40)
         }
         
-        itemAmount.snp.makeConstraints { make in
-            make.width.equalTo(50)
+        mainStack.snp.makeConstraints { make in
+            make.centerY.equalTo(imageContainer)
+            make.left.equalTo(imageContainer.snp.right).offset(20)
         }
     }
     
-    func configureUtilitiesCell(imageName: String, label: String, amount: Int) {
+    func configureUtilitiesCell(imageName: String, label: String, amount: String) {
         itemIcon.image = UIImage(named: imageName)
         itemLabel.text = label
-        itemAmount.text = String(Int.random(in: 0...999))
+        itemAmount.text = String(Int.random(in: 1...999))
+    }
+    
+    override func prepareForReuse() {
+        self.itemIcon.image = nil
     }
 }
