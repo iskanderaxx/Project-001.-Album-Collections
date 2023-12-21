@@ -1,5 +1,6 @@
 
 import Foundation
+import UIKit
 
 struct ListProperties {
     let image: String
@@ -65,7 +66,7 @@ struct Model {
     private let mediaTypes: ListSection = {
         .mediaTypes([.init(image: "video", title: "Video", amount: ""),
                      .init(image: "person.crop.square", title: "Selfie", amount: ""),
-                     .init(image: "circle.dotted.circle", title: "Live Photos", amount: ""),
+                     .init(image: "target", title: "Live Photos", amount: ""),
                      .init(image: "cube", title: "Portraits", amount: ""),
                      
                      .init(image: "pano", title: "Panoramas", amount: ""),

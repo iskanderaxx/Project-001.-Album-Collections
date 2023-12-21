@@ -57,8 +57,8 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
          switch kind {
          case UICollectionView.elementKindSectionHeader:
              guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                          withReuseIdentifier: AlbumsHeaderView.identifier,
-                                                                          for: indexPath) as? AlbumsHeaderView
+                                                                          withReuseIdentifier: SectionsHeaderView.identifier,
+                                                                          for: indexPath) as? SectionsHeaderView
              else { return UICollectionReusableView() }
              header.configureHeader(categoryName: sections[indexPath.section].sectionTitle)
              return header
