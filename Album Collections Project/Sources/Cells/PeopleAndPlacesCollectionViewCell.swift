@@ -13,7 +13,7 @@ final class PeopleAndPlacesCollectionViewCell: UICollectionViewCell {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = 20
         imageView.layer.shouldRasterize = true
         imageView.layer.rasterizationScale = UIScreen.main.scale
         return imageView
@@ -62,14 +62,12 @@ final class PeopleAndPlacesCollectionViewCell: UICollectionViewCell {
         albumLabel.snp.makeConstraints { make in
             make.width.equalTo(imageView)
             make.top.equalTo(imageView.snp.bottom).offset(5)
-            make.left.equalTo(imageView)
             make.height.equalTo(16)
         }
         
         amountLabel.snp.makeConstraints { make in
             make.width.equalTo(imageView)
             make.top.equalTo(albumLabel.snp.bottom).offset(1)
-            make.left.equalTo(imageView)
             make.height.equalTo(16)
         }
     }
