@@ -21,24 +21,32 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell {
     lazy var itemLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
     
     lazy var itemAmount: UILabel = {
         let label = UILabel()
-        label.textColor = .lightGray
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         return label
+    }()
+    
+    lazy var disclosureIndicatorIcon: UIImageView = {
+        let icon  = UIImageView()
+        icon.image = UIImage(named: "chevron.right")
+        icon.contentMode = .scaleAspectFit
+        icon.tintColor = .systemGray
+        icon.clipsToBounds = true
+        return icon
     }()
     
     // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .systemBlue
-//        setupHierarchy()
-//        setupLayout()
+        setupHierarchy()
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -47,29 +55,37 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Setup, Layout & Configuration
     
-    //    private func setupHierarchy() {
-    //        [itemIcon, itemLabel, itemAmount].forEach {
-    //            addSubview($0)
-    //        }
-    //    }
-    //
-    //    private func setupLayout() {
-    //        itemIcon.snp.makeConstraints { make in
-    //            make.left.equalTo(contentView).offset(20)
-    //        }
-    //
-    //        itemLabel.snp.makeConstraints { make in
-    //            make.centerY.equalTo(contentView)
-    //            make.left.equalTo(itemIcon).offset(5)
-    //        }
-    //
-    //        itemAmount.snp.makeConstraints { make in
-    //            make.centerY.equalTo(contentView)
-    //            make.right.equalTo(contentView).offset(-20)
-    //        }
-    //
-    //    }
-    //    
+    private func setupHierarchy() {
+        [itemIcon, itemLabel, itemAmount, disclosureIndicatorIcon].forEach {
+            addSubview($0)
+        }
+    }
+    
+    private func setupLayout() {
+        itemIcon.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(contentView)
+            make.height.equalTo(23)
+            make.width.equalTo(23)
+        }
+        
+        itemLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(itemIcon).offset(40)
+        }
+        
+        itemAmount.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(itemIcon).offset(295)
+        }
+        
+        disclosureIndicatorIcon.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(itemAmount).offset(38)
+            make.height.equalTo(12)
+            make.width.equalTo(12)
+        }
+    }
     
     func configureUtilitiesCell(imageName: String, label: String, amount: String) {
         itemIcon.image = UIImage(named: imageName)
@@ -77,7 +93,7 @@ final class UtilitiesCollectionViewCell: UICollectionViewCell {
         itemAmount.text = String(Int.random(in: 1...999))
     }
     
-//    override func prepareForReuse() {
-//        self.itemIcon.image = nil
-//    }
+    override func prepareForReuse() {
+        self.itemIcon.image = nil
+    }
 }

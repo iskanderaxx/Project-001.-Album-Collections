@@ -66,11 +66,11 @@ struct Model {
     private let mediaTypes: ListSection = {
         .mediaTypes([.init(image: "video", title: "Video", amount: ""),
                      .init(image: "person.crop.square", title: "Selfie", amount: ""),
-                     .init(image: "target", title: "Live Photos", amount: ""),
+                     .init(image: "circle.dotted.circle", title: "Live Photos", amount: ""),
                      .init(image: "cube", title: "Portraits", amount: ""),
                      
                      .init(image: "pano", title: "Panoramas", amount: ""),
-                     .init(image: "square.on.square.intersection.dashed", title: "Series", amount: ""),
+                     .init(image: "series", title: "Series", amount: ""),
                      .init(image: "camera.viewfinder", title: "Screetshots", amount: ""),
                      .init(image: "smallcircle.filled.circle", title: "Screen recordings", amount: "")])
     }()
